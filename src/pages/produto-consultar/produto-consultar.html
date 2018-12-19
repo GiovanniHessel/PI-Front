@@ -1,0 +1,62 @@
+<menu-component menuAtivo="produto"></menu-component>
+<br>
+<br>
+<br>
+
+<div class="container">
+  <div class="jumbotron">
+    <h1>Consulta de Produto</h1>
+  </div>
+</div>
+
+<body>
+  <div class="table-responsive">
+    <table class="table table-bordered">
+      <ul>
+        <tr>
+          <th>id</th>
+          <th>Nome</th>
+          <th>Descrição</th>
+          <th>ean</th>
+          <th>estoque</th>
+          <th>custo</th>
+          <th>preço</th>
+        </tr>
+        <tr *ngFor="let produto of produtos">
+          <td>{{produto.id}}</td>
+          <td>{{produto.nome}}</td>
+          <td>{{produto.descricao}}</td>
+          <td>{{produto.ean}}</td>
+          <td>{{produto.estoque.quantidade}}</td>
+          <td>{{produto.custo.custo}}</td>
+          <td>{{produto.preco.preco}}</td>
+          <td>
+
+            <div *ngIf="produtoService.getSelecionar() != ''" class="btn-group btn-group-xs" role="group" aria-label="...">
+                <div class="btn-group" role="group">
+                  <button type="button" class="btn btn-primary btn-xs" (click)="goToRetorno(produto)">Selecionar</button>
+                </div>
+            </div>
+            <div *ngIf="produtoService.getSelecionar() == ''" class="btn-group btn-group-xs" role="group" aria-label="...">
+              <div class="btn-group" role="group">
+                <button type="button" class="btn btn-success btn-xs" (click)="goToCadastro(produto)">Alterar</button>
+              </div>
+
+              <div *ngIf="produto.inativo == 0">
+                <div class="btn-group" role="group">
+                  <button type="button" class="btn btn-danger btn-xs" (click)="ativoInativo(produto)"> Inativar</button>
+                </div>
+              </div>
+              <div *ngIf="produto.inativo == 1">
+                <div class="btn-group" role="group">
+                  <button type="button" class="btn btn-warning btn-xs" (click)="ativoInativo(produto)"> Ativar</button>
+                </div>
+              </div>
+
+            </div>
+          </td>
+        </tr>
+      </ul>
+    </table>
+  </div>
+</body>

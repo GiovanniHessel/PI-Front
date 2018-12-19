@@ -1,0 +1,53 @@
+<menu-component menuAtivo="home"></menu-component>
+<br>
+<br>
+<br>
+
+<h1 class="title-consulta">Cadastro de Fornecedor</h1>
+
+<div class="container">
+  <div class="container1">
+    <label class="label-form" class="label-form"for="fornecedor">Nome Fantasia</label>
+    <input type="text" class="input-form" name="nome-fantasia" id="nomeFantasia" [(ngModel)]="fornecedor.nomeFantasia" placeholder="Nome Fantasia">
+    <label class="label-form" class="label-form"for="fornecedor">Razao Social</label>
+    <input type="text" class="input-form" name="razao-social" id="sobrenome" [(ngModel)]="fornecedor.razaoSocial" placeholder="Razao Social">
+    <label class="label-form" class="label-form"for="fornecedor">CNPJ</label>
+    <input type="text" class="input-form" name="cpf" id="cpf" [(ngModel)]="fornecedor.cnpj" placeholder="CNPJ"><br>
+  </div>
+
+  <div class="container2">
+    <label class="label-form" class="label-form"for="fornecedor">Data de Crianção</label>
+    <input type="date" class="input-form" name="data" id="data" [(ngModel)]="fornecedor.dataDeNascimento" placeholder="Data de Criação">
+  </div>
+  <br>
+
+  <div class="container3">
+      <label class="label-form" class="label-form"for="fornecedor">CEP</label>
+      <input type="text" class="input-form" name="cep" id="cep" [(ngModel)]="fornecedor.cep" placeholder="Cep">
+    <label class="label-form" class="label-form"for="fornecedor">Logradouro</label>
+    <input type="text" class="input-form" name="logradouro" id="logradouro" [(ngModel)]="fornecedor.logradouro" placeholder="Logradouro">
+    <label class="label-form" class="label-form"for="fornecedor">Numero</label>
+    <input type="text" class="input-form" name="num" id="num" [(ngModel)]="fornecedor.numero" placeholder="numero"><br>
+  </div>
+
+  <div class="container4">
+    <label class="label-form" class="label-form"for="fornecedor">Complemento</label>
+    <input type="text" class="input-form" name="compl" id="compl" [(ngModel)]="fornecedor.complemento" placeholder="Complemento">
+    <label class="label-form" class="label-form"for="fornecedor">Bairro</label>
+    <input type="text" class="input-form" name="bairro" id="bairro" [(ngModel)]="fornecedor.bairro" placeholder="Bairro"><br>
+  </div>
+
+  <label class="label-form" class="label-form"for="fornecedor">Cidade:  </label>
+  <select [(ngModel)]="fornecedor.cidade">
+    <option *ngFor="let cidade of localizacao" [ngValue]="cidade">  {{cidade.cidade}}</option>
+  </select>
+  <br>
+
+  <label class="label-form" class="label-form"for="fornecedor">Formato Juridico</label>
+  <input type="text" class="input-form" name="formato-juridico" id="formato-juridico" [(ngModel)]="fornecedor.formatoJuridico" placeholder="Formato Juridico"> 
+  <br>
+  <label class="label-form" class="label-form"for="fornecedor">Regime Tributario</label>
+  <input type="text" class="input-form" name="regime-tributario" id="regime-tributario" [(ngModel)]="fornecedor.regimeTributario" placeholder="Regime Tributario">
+  <br>
+  <button type="button" class="botao-form" (click)="cadastrar()">Cadastrar</button>
+</div>
